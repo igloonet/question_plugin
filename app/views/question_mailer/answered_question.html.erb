@@ -1,7 +1,7 @@
 <h1><%= l(:text_answer) %></h1>
 <%= textilizable(@journal, :notes, :only_path => false) %>
 
-<h1><%= l(:text_question) %></h1>
+<h1><%= l(:text_question_for) %> <%= @question.assigned_to.try(:full_name) %></h1>
 <%= textilizable(@question.journal, :notes, :only_path => false) %>
 
 <ul>
