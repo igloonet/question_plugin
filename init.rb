@@ -6,9 +6,6 @@ require 'question_layout_hooks'
 require 'question_journal_hooks'
 
 Rails.configuration.to_prepare do
-  require_dependency 'journal_observer'
-  JournalObserver.send(:include, QuestionPlugin::Patches::JournalObserverPatch) unless JournalObserver.included_modules.include? QuestionPlugin::Patches::JournalObserverPatch
-
   require_dependency 'active_record'
   ActiveRecord::Relation.send(:include, QuestionActiveRecordRelationPatch) unless ActiveRecord::Relation.included_modules.include? QuestionActiveRecordRelationPatch
 
