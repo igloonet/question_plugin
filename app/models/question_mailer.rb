@@ -13,6 +13,7 @@ class QuestionMailer < Mailer
     @question = question
     @issue = question.issue
     @journal = journal
+    @users = [question.assigned_to]
     @issue_url = url_for(:controller => 'issues', :action => 'show', :id => question.issue)
 
     redmine_headers 'Issue-Id' => question.issue.id
@@ -32,6 +33,7 @@ class QuestionMailer < Mailer
     @question = question
     @issue = question.issue
     @journal = closing_journal
+    @users = [question.author]
     @issue_url = url_for(:controller => 'issues', :action => 'show', :id => question.issue)
 
     redmine_headers 'Issue-Id' => question.issue.id
